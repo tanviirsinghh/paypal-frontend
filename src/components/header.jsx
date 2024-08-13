@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import 'primeicons/primeicons.css';
 import Notification from "../Pages/user/notification";
+import CustomInput from "./CustomInput";
 import toast from "react-hot-toast";
 
 
@@ -41,14 +42,16 @@ const Header = () => {
                                             className="user-icon rounded-circle   "
                                         />
                                     </button>
-                                    <input
+                                    <CustomInput></CustomInput>
+                                   
+                                    {/* <input
                                         type="text"
                                         className="form-control search-input px-5 rounded-3"
                                         placeholder="🔎 Search Your friends & opponents"
                                         aria-label="Search"
                                         aria-describedby="basic-addon1"
                                         onKeyUp={(e) => search(e.target.value)}
-                                    />
+                                    /> */}
 
                                 </div>
                                 <div className="col-2 ">

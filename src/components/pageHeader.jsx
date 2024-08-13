@@ -35,14 +35,15 @@ const Pageheader = () => {
                                             className="user-icon rounded-circle   "
                                         />
                                     </button>
-                                    <input
+                                    {/* <input
                                         type="text"
                                         className="form-control search-input px-5 rounded-3"
                                         placeholder="🔎 Search Your friends & opponents"
                                         aria-label="Search"
                                         aria-describedby="basic-addon1"
                                         onKeyUp={(e) => search(e.target.value)}
-                                    />
+                                    /> */}
+                                    
                                 </div>
                                 <div className="col-2 ">
                                     <button className="btn location-btn bg-white rounded-3 text-black">

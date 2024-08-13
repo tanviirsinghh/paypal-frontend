@@ -3,12 +3,18 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
 
+
+
+const useDebounceSearch = () => {
+
+}
 const Friends = () => {
     const token = localStorage.getItem("token");
     const [list, setList] = useState([]);
     const [searchResults, setSearchResults] = useState([]);
     const [output, setOutput] = useState(true);
     const { queryParams } = useParams();
+    const [search, setSearch] = useState("")
 
     useEffect(() => {
         setFriend();
@@ -24,16 +30,28 @@ const Friends = () => {
         }
     };
 
+    useEffect(() => {
+
+        const searchEvent = setTimeout(async () => {
+            handleSearch();
+        }, 300);
+
+        return () => {
+            clearTimeout(searchEvent);
+        }
+
+    }, [search])
     const handleSearch = async (e) => {
-        const searchQuery = e.target.value;
-        if (searchQuery === "") {
+
+
+        if (search === "") {
             setSearchResults([]);
             setOutput(true);
             return;
         }
 
         try {
-            const res = await axios.get("http://127.0.0.1:5050/user/searchFriend/" + searchQuery);
+            const res = await axios.get("http://127.0.0.1:5050/user/searchFriend?search=" + search);
             setSearchResults(res.data);
             setOutput(false);
         } catch (err) {
@@ -57,7 +75,8 @@ const Friends = () => {
                 placeholder="🔎 Search Your friends & opponents"
                 aria-label="Search"
                 aria-describedby="basic-addon1"
-                onKeyUp={handleSearch}
+                // onKeyUp={handleSearch}
+                onChange={(e) => setSearch(e.target.value)}
             />
             <div className="row px-2">
                 <table>

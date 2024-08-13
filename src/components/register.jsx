@@ -144,20 +144,20 @@ const Register = () => {
                             </div>
                         </div>
                         <hr className="my-4" />
-                        {isLoading &&
+                        {/* {isLoading && */}
                             <button className="w-100 btn btn-primary btn-lg" type="submit" onClick={handleRegister}
                             >
                                 Continue to checkout
                             </button>
-                        }
-                        {!isLoading &&
+                        {/* } */}
+                        {/* {!isLoading &&
                             <div class="loader">
                                 <div class="circle"></div>
                                 <div class="circle"></div>
                                 <div class="circle"></div>
                                 <div class="circle"></div>
                             </div>
-                        }
+                        } */}
                     </div>
                 </div>
             </form>

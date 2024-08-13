@@ -3,7 +3,7 @@ import { useState } from "react"
 import axios from "axios"
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-
+import OAuth from "./oAuth";
 
 
 const Login = () => {
@@ -79,8 +79,8 @@ const Login = () => {
                                     <span className="text-white ">Or</span>
                                 </div>
                                 <button className="login-button" type="submit" defaultValue="Sign In" onClick={hangleRegister}>Register Now </button>
-
-
+                                <OAuth />
+          
                             </form>
                             <div className="social-account-container">
                                 <span className="title">Or Sign in with</span>
